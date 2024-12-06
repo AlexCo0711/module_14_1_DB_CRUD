@@ -25,10 +25,10 @@ for i in range(1, 11):
     cursor.execute("INSERT INTO Users (username, email, age, balance) VALUES (?, ?, ?, ?)",
     (f'user{i}', f'example{i}@gmail.com', f'{i * 10}', 1000))
 
-# обновление данных БД Users: каждая 2 запись начиная с 1-й баланс изменен на 500
+# обновление данных БД Users: каждая 2-я запись начиная с 1-й баланс изменен на 500
 cursor.execute("UPDATE Users SET balance = ? WHERE id%2 != ?", (500, 0))
 
-# удаление данных БД Users: каждая 3-я начиная с 1
+# удаление данных БД Users: каждая 3-я начиная с 1-й
 for k in range(1, 11, 3):
     cursor.execute("DELETE FROM Users WHERE id = ?", (f'{k}',))
 
